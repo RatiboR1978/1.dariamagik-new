@@ -1,111 +1,163 @@
-// Parallax effect
-let scrollY = 0;
-const hero = document.querySelector('.hero');
+const revealItems = document.querySelectorAll(".reveal");
 
-function updateParallax() {
-  scrollY = window.scrollY;
-  hero.style.setProperty('--scroll-y', scrollY);
-  requestAnimationFrame(updateParallax);
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+);
+
+revealItems.forEach((item) => revealObserver.observe(item));
+
+const track = document.querySelector("#reviewsTrack");
+const dots = document.querySelector("#reviewsDots");
+const prev = document.querySelector(".reviews__arrow--prev");
+const next = document.querySelector(".reviews__arrow--next");
+const cards = [...document.querySelectorAll(".review-card")];
+
+let currentIndex = 0;
+let perView = 3;
+
+function getPerView() {
+  if (window.matchMedia("(max-width: 700px)").matches) return 1;
+  if (window.matchMedia("(max-width: 980px)").matches) return 2;
+  return 3;
 }
-updateParallax();
 
-// Fade-in animations
-const fadeElements = document.querySelectorAll('.fade-up');
+function maxIndex() {
+  return Math.max(0, cards.length - perView);
+}
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, index) => {
+function buildDots() {
+  dots.innerHTML = "";
+  for (let index = 0; index <= maxIndex(); index += 1) {
+    const dot = document.createElement("button");
+    dot.className = "reviews__dot";
+    dot.type = "button";
+    dot.setAttribute("aria-label", `Показать отзыв ${index + 1}`);
+    dot.addEventListener("click", () => goToReview(index));
+    dots.appendChild(dot);
+  }
+}
+
+function goToReview(index) {
+  currentIndex = Math.min(Math.max(index, 0), maxIndex());
+  const cardWidth = cards[0]?.getBoundingClientRect().width || 0;
+  const gap = parseFloat(getComputedStyle(cards[0]).marginRight) || 0;
+  track.style.transform = `translateX(-${currentIndex * (cardWidth + gap)}px)`;
+
+  dots.querySelectorAll(".reviews__dot").forEach((dot, dotIndex) => {
+    dot.classList.toggle("is-active", dotIndex === currentIndex);
+  });
+
+  prev.disabled = currentIndex === 0;
+  next.disabled = currentIndex === maxIndex();
+}
+
+function refreshReviews() {
+  perView = getPerView();
+  buildDots();
+  goToReview(currentIndex);
+}
+
+prev.addEventListener("click", () => goToReview(currentIndex - 1));
+next.addEventListener("click", () => goToReview(currentIndex + 1));
+
+cards.forEach((card) => {
+  const toggle = card.querySelector(".review-card__toggle");
+  toggle.addEventListener("click", () => {
+    const expanded = card.classList.toggle("is-expanded");
+    toggle.textContent = expanded ? "Свернуть" : "Читать полностью";
+  });
+});
+
+let startX = 0;
+
+track.addEventListener("pointerdown", (event) => {
+  startX = event.clientX;
+});
+
+track.addEventListener("pointerup", (event) => {
+  const delta = startX - event.clientX;
+  if (Math.abs(delta) < 40) return;
+  goToReview(currentIndex + (delta > 0 ? 1 : -1));
+});
+
+window.addEventListener("resize", refreshReviews);
+refreshReviews();
+
+// ── Hero parallax ──────────────────────────────────────────────
+const heroMedia = document.querySelector(".hero__media img, .hero__media video");
+if (heroMedia && heroMedia.tagName === "IMG") {
+  let rafPending = false;
+  window.addEventListener("scroll", () => {
+    if (!rafPending) {
+      rafPending = true;
+      requestAnimationFrame(() => {
+        heroMedia.style.transform = `scale(1.15) translateY(${window.scrollY * 0.28}px)`;
+        rafPending = false;
+      });
+    }
+  }, { passive: true });
+  heroMedia.style.transform = "scale(1.15) translateY(0px)";
+}
+
+// ── Author counters ────────────────────────────────────────────
+function formatNumber(n) {
+  return n >= 1000
+    ? Math.floor(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+    : Math.floor(n).toString();
+}
+
+function easeOutQuart(t) {
+  return 1 - Math.pow(1 - t, 4);
+}
+
+function animateCounter(el, target, duration) {
+  const prefix = el.dataset.prefix || "";
+  const suffix = el.dataset.suffix || "";
+  const start = performance.now();
+  function step(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    el.textContent = prefix + formatNumber(target * easeOutQuart(progress)) + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+const counterEls = document.querySelectorAll(".author__facts [data-count]");
+if (counterEls.length) {
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        counterEls.forEach((el) => animateCounter(el, +el.dataset.count, 1800));
+        counterObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+  counterObserver.observe(document.querySelector(".author__facts"));
+}
+
+// ── Active nav section ─────────────────────────────────────────
+const navLinks = document.querySelectorAll(".site-header__nav a");
+const sections = [...navLinks].map((a) => document.querySelector(a.getAttribute("href")));
+
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const link = [...navLinks].find(
+      (a) => a.getAttribute("href") === "#" + entry.target.id
+    );
+    if (!link) return;
     if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, index * 100);
+      navLinks.forEach((a) => a.classList.remove("is-active"));
+      link.classList.add("is-active");
     }
   });
-}, {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-});
+}, { threshold: 0.3 });
 
-fadeElements.forEach(el => observer.observe(el));
-
-// Reviews slider
-const track = document.getElementById('reviewsTrack');
-const dotsContainer = document.getElementById('reviewsDots');
-const cards = track.querySelectorAll('.review-card');
-let currentSlide = 0;
-let slidesPerView = 1;
-let totalSlides = 1;
-
-function updateSlidesPerView() {
-  if (window.innerWidth >= 1024) {
-    slidesPerView = 3;
-  } else if (window.innerWidth >= 768) {
-    slidesPerView = 2;
-  } else {
-    slidesPerView = 1;
-  }
-  totalSlides = Math.ceil(cards.length / slidesPerView);
-  createDots();
-  goToSlide(Math.min(currentSlide, totalSlides - 1));
-}
-
-function createDots() {
-  dotsContainer.innerHTML = '';
-  for (let i = 0; i < totalSlides; i++) {
-    const dot = document.createElement('button');
-    dot.classList.add('reviews__dot');
-    if (i === currentSlide) dot.classList.add('active');
-    dot.addEventListener('click', () => goToSlide(i));
-    dotsContainer.appendChild(dot);
-  }
-}
-
-function goToSlide(index) {
-  currentSlide = index;
-  const offset = -index * (100 / slidesPerView) * slidesPerView;
-  track.style.transform = `translateX(${offset}%)`;
-
-  document.querySelectorAll('.reviews__dot').forEach((dot, i) => {
-    dot.classList.toggle('active', i === currentSlide);
-  });
-}
-
-// Touch swipe for mobile
-let touchStartX = 0;
-let touchEndX = 0;
-
-track.addEventListener('touchstart', e => {
-  touchStartX = e.changedTouches[0].screenX;
-});
-
-track.addEventListener('touchend', e => {
-  touchEndX = e.changedTouches[0].screenX;
-  handleSwipe();
-});
-
-function handleSwipe() {
-  const diff = touchStartX - touchEndX;
-  if (Math.abs(diff) > 50) {
-    if (diff > 0 && currentSlide < totalSlides - 1) {
-      goToSlide(currentSlide + 1);
-    } else if (diff < 0 && currentSlide > 0) {
-      goToSlide(currentSlide - 1);
-    }
-  }
-}
-
-window.addEventListener('resize', updateSlidesPerView);
-updateSlidesPerView();
-
-// Toggle review text
-function toggleReview(btn) {
-  const text = btn.previousElementSibling;
-  const isExpanded = !text.classList.contains('truncated');
-
-  if (isExpanded) {
-    text.classList.add('truncated');
-    btn.textContent = 'Читать полностью';
-  } else {
-    text.classList.remove('truncated');
-    btn.textContent = 'Свернуть';
-  }
-}
+sections.forEach((sec) => { if (sec) navObserver.observe(sec); });

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -9,292 +8,267 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <!-- HEADER -->
+  <header class="site-header">
+    <span class="site-header__brand">Дарья Трухина · Рейки</span>
+    <nav class="site-header__nav">
+      <a href="#audience">Для кого</a>
+      <a href="#program">Программа</a>
+      <a href="#author">Автор</a>
+      <a href="#reviews">Отзывы</a>
+    </nav>
+    <a href="#cta" class="site-header__cta">Участвовать</a>
+  </header>
+
   <!-- HERO -->
-  <section class="hero" data-od-id="hero">
-    <div class="hero__bg"></div>
-    <div class="hero__mountains"></div>
-    <div class="hero__fog"></div>
+  <section class="hero" id="hero">
+    <div class="hero__media">
+      <video autoplay muted loop playsinline>
+        <source src="video/kling_20260604_作品_gentle_glo_3196_0.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero__veil"></div>
 
     <div class="container">
-      <div class="hero__content">
-        <div class="hero__badge">4-дневный онлайн-марафон</div>
+      <div class="hero__inner">
+        <div class="hero__content">
 
-        <h1 class="hero__title">Онлайн-марафон Рейки</h1>
+          <span class="eyebrow">4-дневный онлайн-марафон</span>
+          <h1>Онлайн&#8209;марафон<br>Рейки</h1>
+          <p class="hero__lead">Как с помощью Рейки улучшить здоровье и отношения, притянуть новые возможности и деньги</p>
 
-        <p class="hero__subtitle">Как с помощью Рейки улучшить здоровье и отношения, притянуть новые возможности и деньги</p>
+          <div class="hero__meta">
+            <span>25 марта · 12:00 и 19:00 мск</span>
+          </div>
 
-        <p class="hero__date">25 марта в 12:00 и 19:00 мск</p>
-
-        <div class="hero__cta">
-          <button class="btn">Участвовать бесплатно</button>
+          <div class="hero__actions">
+            <a href="#cta" class="button button--primary">Участвовать бесплатно</a>
+            <p>Подарок при регистрации — практика «Быстрое восстановление сил»</p>
+          </div>
         </div>
 
-        <div class="hero__gift">
-          <div class="hero__gift-label">Подарок при регистрации</div>
-          <div class="hero__gift-text">Практика «Быстрое восстановление сил»</div>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- AUDIENCE -->
-  <section class="audience" data-od-id="audience">
+  <section class="section audience" id="audience">
     <div class="container">
-      <div class="audience__header">
+      <div class="section__head">
         <span class="eyebrow">Для кого марафон</span>
-        <h2 class="section-title">Найдите себя</h2>
+        <h2>Найдите себя</h2>
       </div>
 
       <div class="audience__grid">
-        <div class="audience-card fade-up">
-          <h3 class="audience-card__title">Вы знакомы с Рейки</h3>
-          <ul class="audience-card__list">
-            <li>и у вас есть инициация, но в вашей практике слабые результаты или их нет совсем</li>
-            <li>Вас волнуют вопросы — как снова начать практиковать и получить реальные результаты</li>
-            <li>Вы хотите восстановить и углубить знания о Рейки, получить больше информации и алгоритмов</li>
-            <li>Хотите поверить в себя и свои способности и получить поддержку единомышленников</li>
-          </ul>
-        </div>
+        <article class="audience-card reveal">
+          <div class="soft-icon soft-icon--drop"></div>
+          <h3>Знакомы с Рейки</h3>
+          <p>Есть инициация, но слабые результаты или их нет совсем. Хотите восстановить практику и получить реальные изменения.</p>
+        </article>
 
-        <div class="audience-card fade-up">
-          <h3 class="audience-card__title">Вы новичок в практиках</h3>
-          <ul class="audience-card__list">
-            <li>и изучаете психологию, духовный путь, самопознание, медитации</li>
-            <li>Вам интересно узнать о том, что такое Рейки</li>
-            <li>Какие у Рейки сильные стороны и преимущества для новичков</li>
-            <li>Какие жизненные задачи можно решать с помощью энергии?</li>
-            <li>Переживаете все ли получится, сможете ли раскрыть свои способности</li>
-            <li>Настроены помогать другим людям и сделать это своей профессией</li>
-          </ul>
-        </div>
+        <article class="audience-card reveal">
+          <div class="soft-icon soft-icon--leaf"></div>
+          <h3>Новичок в практиках</h3>
+          <p>Изучаете психологию, медитации, духовный путь. Хотите узнать о Рейки и о том, как раскрыть свои способности.</p>
+        </article>
 
-        <div class="audience-card fade-up">
-          <h3 class="audience-card__title">Вы практикуете другие системы</h3>
-          <ul class="audience-card__list">
-            <li>(астрологию, нумерологию, космоэнергетику и другие направления работы с подсознанием)</li>
-            <li>Хотите разобраться, как работает энергия Рейки</li>
-            <li>Будет ли эта практика безопасна и экологична</li>
-            <li>Ищете систему, которая не только дает ощущение энергии, но и позволяет получать осязаемые результаты</li>
-            <li>Хотите физических перемен во всех сферах своей жизни</li>
-          </ul>
-        </div>
+        <article class="audience-card reveal">
+          <div class="soft-icon soft-icon--path"></div>
+          <h3>Практикуете другие системы</h3>
+          <p>Астрология, нумерология, космоэнергетика. Ищете систему, которая даёт осязаемые результаты во всех сферах жизни.</p>
+        </article>
+
+        <article class="audience-card reveal">
+          <div class="soft-icon soft-icon--sun"></div>
+          <h3>Хотите помогать людям</h3>
+          <p>Настроены сделать энергетические практики своей профессией. Готовы меняться и помогать другим меняться.</p>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- PROGRAM -->
-  <section class="program" data-od-id="program">
+  <section class="section program" id="program">
     <div class="container">
-      <div class="program__header">
+      <div class="section__head">
         <span class="eyebrow">Программа</span>
-        <h2 class="section-title">4 дня трансформации</h2>
+        <h2>4 дня трансформации</h2>
+        <p>Каждый день — практика, техника и домашнее задание, которые сразу дают результат</p>
       </div>
 
-      <div class="program__grid">
-        <!-- День 1 -->
-        <div class="day-card fade-up">
-          <div class="day-card__header">
-            <div class="day-card__number">1</div>
-            <h3 class="day-card__title">Диагностика счастья и удовлетворённости жизнью</h3>
+      <div class="program__route">
+        <article class="day-card reveal">
+          <div class="day-card__top">
+            <div class="program-icon program-icon--compass"></div>
+            <p>День 1</p>
           </div>
+          <h3>Диагностика счастья и удовлетворённости жизнью</h3>
+          <dl>
+            <div>
+              <dt>Узнаете</dt>
+              <dd>Какие точки роста уже есть — и куда направить силы. Где именно утекает ваш ресурс.</dd>
+            </div>
+            <div>
+              <dt>Освоите</dt>
+              <dd>Технику мягкого снятия энергетических блоков. Практику «Манифестация изменений».</dd>
+            </div>
+            <div>
+              <dt>Выполните</dt>
+              <dd>Диагностику по 8 сферам жизни и определите, какие 2 «тянут вниз».</dd>
+            </div>
+          </dl>
+        </article>
 
-          <div class="day-card__section">
-            <div class="day-card__label">Узнаете</div>
-            <ul class="day-card__list">
-              <li>Какие точки роста уже есть — и куда направить силы</li>
-              <li>Где именно утекает ваш ресурс</li>
-              <li>Какие 2 из 8 сфер сейчас «тянут вниз»</li>
-            </ul>
+        <article class="day-card reveal">
+          <div class="day-card__top">
+            <div class="program-icon program-icon--hands"></div>
+            <p>День 2</p>
           </div>
+          <h3>Запуск энергии и восстановление ресурса</h3>
+          <dl>
+            <div>
+              <dt>Узнаете</dt>
+              <dd>Какой внутренний конфликт держит вас в стрессе. Как работает Рейки и почему подходит новичкам.</dd>
+            </div>
+            <div>
+              <dt>Освоите</dt>
+              <dd>Технику «Крылья ангела». Практику «Исцеление внутреннего ребёнка».</dd>
+            </div>
+            <div>
+              <dt>Выполните</dt>
+              <dd>Определите 5 внутренних барьеров, которые лишают вас энергии.</dd>
+            </div>
+          </dl>
+        </article>
 
-          <div class="day-card__section">
-            <div class="day-card__label">Поймёте</div>
-            <ul class="day-card__list">
-              <li>Технику мягкого снятия энергетических и эмоциональных блоков</li>
-              <li>Практику «Манифестация изменений», чтобы направить энергию в будущее</li>
-            </ul>
+        <article class="day-card reveal">
+          <div class="day-card__top">
+            <div class="program-icon program-icon--key"></div>
+            <p>День 3</p>
           </div>
+          <h3>Ключ к желаниям, деньгам и внутренней силе</h3>
+          <dl>
+            <div>
+              <dt>Узнаете</dt>
+              <dd>Как Рейки расширяет денежный поток. Как родовые установки влияют на доход и удачу.</dd>
+            </div>
+            <div>
+              <dt>Освоите</dt>
+              <dd>Практику растворения денежных страхов. Сеанс Рейки на исполнение желания.</dd>
+            </div>
+            <div>
+              <dt>Выполните</dt>
+              <dd>Выявите глубинные причины, которые создают денежные блоки.</dd>
+            </div>
+          </dl>
+        </article>
 
-          <div class="day-card__section">
-            <div class="day-card__label">Выполните</div>
-            <ul class="day-card__list">
-              <li>Какие 5 сфер формируют вашу жизненную энергию</li>
-            </ul>
+        <article class="day-card reveal">
+          <div class="day-card__top">
+            <div class="program-icon program-icon--heart"></div>
+            <p>День 4</p>
           </div>
-        </div>
-
-        <!-- День 2 -->
-        <div class="day-card fade-up">
-          <div class="day-card__header">
-            <div class="day-card__number">2</div>
-            <h3 class="day-card__title">Запуск энергии и восстановление ресурса</h3>
-          </div>
-
-          <div class="day-card__section">
-            <div class="day-card__label">Узнаете</div>
-            <ul class="day-card__list">
-              <li>Какой внутренний конфликт держит вас в стрессе</li>
-              <li>Как работает метод Рейки и почему он подходит новичкам</li>
-              <li>Почему усилия не дают результата, если в теле нет ресурса</li>
-            </ul>
-          </div>
-
-          <div class="day-card__section">
-            <div class="day-card__label">Поймёте</div>
-            <ul class="day-card__list">
-              <li>Технику повышения жизненной энергии «Крылья ангела»</li>
-              <li>Практику соединения с собой «Исцеление внутреннего ребёнка»</li>
-            </ul>
-          </div>
-
-          <div class="day-card__section">
-            <div class="day-card__label">Выполните</div>
-            <ul class="day-card__list">
-              <li>Какие 5 внутренних барьеров лишают вас энергии</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- День 3 -->
-        <div class="day-card fade-up">
-          <div class="day-card__header">
-            <div class="day-card__number">3</div>
-            <h3 class="day-card__title">Ключ к желаниям, деньгам и внутренней силе</h3>
-          </div>
-
-          <div class="day-card__section">
-            <div class="day-card__label">Узнаете</div>
-            <ul class="day-card__list">
-              <li>Как энергия Рейки расширяет денежный поток</li>
-              <li>Почему желания не исполняются и что мешает движению вперёд</li>
-              <li>Как родовые установки влияют на доход и удачу</li>
-            </ul>
-          </div>
-
-          <div class="day-card__section">
-            <div class="day-card__label">Поймёте</div>
-            <ul class="day-card__list">
-              <li>Практику растворения денежных страхов, ограничений и установок</li>
-              <li>Сеанс Рейки на исполнение желания</li>
-            </ul>
-          </div>
-
-          <div class="day-card__section">
-            <div class="day-card__label">Выполните</div>
-            <ul class="day-card__list">
-              <li>Какие глубинные причины создают денежные блоки</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- День 4 -->
-        <div class="day-card fade-up">
-          <div class="day-card__header">
-            <div class="day-card__number">4</div>
-            <h3 class="day-card__title">Шаг в здоровье и любовь</h3>
-          </div>
-
-          <div class="day-card__section">
-            <div class="day-card__label">Узнаете</div>
-            <ul class="day-card__list">
-              <li>Как восстанавливается связь с партнёром, детьми или родителями</li>
-              <li>Каких 2 ошибок стоит избегать, чтобы отношения не теряли тепло</li>
-              <li>Какие 5 практик Рейки помогают телу восстанавливаться</li>
-            </ul>
-          </div>
-
-          <div class="day-card__section">
-            <div class="day-card__label">Поймёте</div>
-            <ul class="day-card__list">
-              <li>Практику «Свеча счастливых отношений»</li>
-              <li>Сеанс на укрепление здоровья и восстановление энергии тела</li>
-            </ul>
-          </div>
-
-          <div class="day-card__section">
-            <div class="day-card__label">Выполните</div>
-            <ul class="day-card__list">
-              <li>Почему возникают хронические симптомы и повторяющиеся состояния</li>
-            </ul>
-          </div>
-        </div>
+          <h3>Шаг в здоровье и любовь</h3>
+          <dl>
+            <div>
+              <dt>Узнаете</dt>
+              <dd>Как восстанавливается связь с партнёром, детьми или родителями. Каких 2 ошибок стоит избегать.</dd>
+            </div>
+            <div>
+              <dt>Освоите</dt>
+              <dd>Практику «Свеча счастливых отношений». Сеанс на укрепление здоровья.</dd>
+            </div>
+            <div>
+              <dt>Выполните</dt>
+              <dd>Найдёте причины хронических симптомов и повторяющихся состояний.</dd>
+            </div>
+          </dl>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- BENEFITS -->
-  <section class="benefits" data-od-id="benefits">
+  <section class="section benefits" id="benefits">
     <div class="container">
-      <div class="benefits__header">
+      <div class="section__head section__head--wide">
         <span class="eyebrow">Что вас ждёт</span>
-        <h2 class="section-title">На марафоне</h2>
+        <h2>На марафоне</h2>
       </div>
 
       <div class="benefits__grid">
-        <div class="benefit-card fade-up">
-          <div class="benefit-card__number">1</div>
-          <p class="benefit-card__text">Сообщество единомышленников с невероятной энергетикой. Поможет вам раскрыться, получить заряд энергии, увидеть со стороны жизненные задачи</p>
-        </div>
+        <article class="benefit-card reveal">
+          <div class="benefit-icon benefit-icon--community"></div>
+          <h3>Сообщество единомышленников</h3>
+          <p>С невероятной энергетикой. Помогает раскрыться, получить заряд и увидеть жизненные задачи со стороны.</p>
+        </article>
 
-        <div class="benefit-card fade-up">
-          <div class="benefit-card__number">2</div>
-          <p class="benefit-card__text">Домашние задания, которые позволят применить сразу полученные знания и увидеть в себе огромный потенциал</p>
-        </div>
+        <article class="benefit-card reveal">
+          <div class="benefit-icon benefit-icon--task"></div>
+          <h3>Домашние задания</h3>
+          <p>Позволят сразу применить полученные знания и увидеть в себе огромный потенциал.</p>
+        </article>
 
-        <div class="benefit-card fade-up">
-          <div class="benefit-card__number">3</div>
-          <p class="benefit-card__text">Инициация в Рейки на 24 часа. Станете практиком Рейки, сможете практиковать и получить результаты</p>
-        </div>
+        <article class="benefit-card reveal">
+          <div class="benefit-icon benefit-icon--spark"></div>
+          <h3>Инициация в Рейки на 24 часа</h3>
+          <p>Станете практиком Рейки, сможете практиковать и получить первые реальные результаты.</p>
+        </article>
 
-        <div class="benefit-card fade-up">
-          <div class="benefit-card__number">4</div>
-          <p class="benefit-card__text">Обратная связь по всем вопросам</p>
-        </div>
+        <article class="benefit-card reveal">
+          <div class="benefit-icon benefit-icon--message"></div>
+          <h3>Обратная связь</h3>
+          <p>По всем вопросам на протяжении марафона. Никто не останется без поддержки.</p>
+        </article>
 
-        <div class="benefit-card fade-up">
-          <div class="benefit-card__number">5</div>
-          <p class="benefit-card__text">Бонусы за выполненные домашние задания</p>
-        </div>
+        <article class="benefit-card reveal">
+          <div class="benefit-icon benefit-icon--gift"></div>
+          <h3>Бонусы за домашние задания</h3>
+          <p>За каждое выполненное задание — дополнительные материалы и подарки от Дарьи.</p>
+        </article>
 
-        <div class="benefit-card fade-up">
-          <div class="benefit-card__number">6</div>
-          <p class="benefit-card__text">Драйв, энергия и положительные эмоции</p>
-        </div>
+        <article class="benefit-card reveal">
+          <div class="benefit-icon benefit-icon--energy"></div>
+          <h3>Драйв и положительные эмоции</h3>
+          <p>Заряд энергии, который остаётся с вами и продолжает работать после марафона.</p>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- AUTHOR -->
-  <section class="author" data-od-id="author">
+  <section class="author" id="author">
     <div class="container">
-      <div class="author__container">
-        <div class="author__photo fade-up">
-          [Фото Дарьи Трухиной]
-        </div>
+      <div class="author__grid">
+        <figure class="author__photo reveal">
+          <img src="images/author-placeholder.png" alt="Дарья Трухина" width="430" height="574">
+          <figcaption>Дарья Трухина · Мастер Учитель Рейки</figcaption>
+        </figure>
 
         <div class="author__content">
           <span class="eyebrow">Автор и ведущая</span>
-          <h2 class="author__name">Дарья Трухина</h2>
+          <h2>Дарья Трухина</h2>
           <p class="author__role">Мастер Учитель 8 направлений Рейки, психолог</p>
 
-          <blockquote class="author__quote fade-up">
-            «В Марафоне Рейки вас ждут практические задания на осознание, техники Рейки и мой опыт. Вы почувствуете свой потенциал, силу энергии и поймете как можно решать конкретные жизненные задачи через внутреннюю работу над собой. Если вы со мной, будьте готовы меняться!»
+          <blockquote class="reveal">
+            «В Марафоне Рейки вас ждут практические задания на осознание, техники Рейки и мой опыт. Вы почувствуете свой потенциал, силу энергии и поймёте, как решать конкретные жизненные задачи через внутреннюю работу. Если вы со мной — будьте готовы меняться!»
           </blockquote>
 
-          <div class="author__stats">
-            <div class="author__stat">Автор 18 тренингов для женщин и мужчин</div>
-            <div class="author__stat">Более 25 000 человек прошло программы</div>
-            <div class="author__stat">Провела более 2500 инициаций и Рей джу</div>
-            <div class="author__stat">Более 3 000 довольных выпускников</div>
-            <div class="author__stat">1 750 результатов в практике</div>
-            <div class="author__stat">Ученица Бретта Бевелла и Оле Габриэльсона</div>
-            <div class="author__stat">Член международной Федерации Рейки Испании</div>
-            <div class="author__stat">Член Ассоциации народной медицины</div>
+          <div class="author__facts">
+            <span data-count="18" data-suffix=" авторских тренингов">18 авторских тренингов</span>
+            <span data-count="25000" data-prefix="Более " data-suffix=" участников">Более 25 000 участников</span>
+            <span data-count="2500" data-prefix="Более " data-suffix=" инициаций">Более 2500 инициаций</span>
+            <span data-count="3000" data-prefix="Более " data-suffix=" выпускников">Более 3000 выпускников</span>
+            <span data-count="1750" data-suffix=" результатов в практике">1750 результатов в практике</span>
+            <span>Ученица Бретта Бевелла</span>
+            <span>Член Федерации Рейки Испании</span>
+            <span>Член Ассоциации народной медицины</span>
           </div>
         </div>
       </div>
@@ -302,100 +276,115 @@
   </section>
 
   <!-- REVIEWS -->
-  <section class="reviews" data-od-id="reviews">
+  <section class="section reviews" id="reviews">
     <div class="container">
-      <div class="reviews__header">
+      <div class="section__head">
         <span class="eyebrow">Отзывы</span>
-        <h2 class="section-title">Что говорят участники</h2>
+        <h2>Что говорят участники</h2>
       </div>
 
-      <div class="reviews__slider">
-        <div class="reviews__track" id="reviewsTrack">
-          <div class="review-card">
-            <div class="review-card__inner">
-              <h4 class="review-card__name">Анна</h4>
-              <p class="review-card__text truncated">Я в первый раз услышала о Рейки у вас и участвовала в бесплатном марафоне, после этого у меня жизнь сильно изменилась в лучшую сторону. Мне предложили хорошую работу, сейчас я прохожу стажировку и постепенно решается моя денежная проблема. Постепенно чувство вины перед отцом ушло и все налаживается. Спасибо вам за такой труд и вашу энергию. Благодарна судьбе, что увидела вас. Вообще я из Казахстана. Сейчас еще и в закрытом клубе медитаций. Всегда с вами.</p>
-              <span class="review-card__toggle" onclick="toggleReview(this)">Читать полностью</span>
-            </div>
-          </div>
+      <div class="reviews__shell">
+        <button class="reviews__arrow reviews__arrow--prev" type="button" aria-label="Предыдущий отзыв" disabled>‹</button>
 
-          <div class="review-card">
-            <div class="review-card__inner">
-              <h4 class="review-card__name">Жанна</h4>
-              <p class="review-card__text truncated">Дарья, вы чудо мастер и практик! Я вкладывала в марафоне Рейки на свечку желание по гармонизации отношений, где я в определенной стране — и о чудо, мне консульство одобрило сложную, долгосрочную визу на 2-ой день работы свечки! Причем она еще не догорела у меня. А по срокам это было 30 рабочих дней и были риски. Одобрили на 5-й рабочий день! Работает наше намерение, желание! Все работает у тех, кто готов меняться и меняется! Я не новичок в практиках разных конфессий, но жду уже курс по традиционному Рейки.</p>
-              <span class="review-card__toggle" onclick="toggleReview(this)">Читать полностью</span>
-            </div>
-          </div>
+        <div class="reviews__viewport">
+          <div class="reviews__track" id="reviewsTrack">
 
-          <div class="review-card">
-            <div class="review-card__inner">
-              <h4 class="review-card__name">Людмила</h4>
-              <p class="review-card__text truncated">Хочу рассказать о Чуде. На вебинаре «Рейки Деньги», Даша сказала: «Приготовьтесь, теперь вы будите получать подарки! Уже с завтрашнего дня! Я улыбнулась, мне то не дарят подарки. Если что-то надо, то мы покупаем; но не спонтанные покупки, тем более подарки. И вдруг, на следующий день мне позвонила лучшая подруга и сказала: «я купила тебе подарок, увидела шикарный пуховик, подумала о тебе и купила, пусть будет тебе подарком на Новый Год». Я ахнула. Это было на следующий день после практики. Все как Даша сказала. Это для меня как чудо.</p>
-              <span class="review-card__toggle" onclick="toggleReview(this)">Читать полностью</span>
-            </div>
-          </div>
+            <article class="review-card">
+              <div class="review-card__head">
+                <img class="review-card__avatar" src="images/Anna.webp" alt="Анна" width="52" height="52">
+                <h3>Анна</h3>
+              </div>
+              <p class="review-card__text">Я в первый раз услышала о Рейки у вас и участвовала в бесплатном марафоне, после этого у меня жизнь сильно изменилась в лучшую сторону. Мне предложили хорошую работу, сейчас я прохожу стажировку и постепенно решается моя денежная проблема. Постепенно чувство вины перед отцом ушло и всё налаживается. Спасибо вам за такой труд и вашу энергию. Благодарна судьбе, что увидела вас. Я из Казахстана. Сейчас ещё и в закрытом клубе медитаций. Всегда с вами.</p>
+              <button class="review-card__toggle" type="button">Читать полностью</button>
+            </article>
 
-          <div class="review-card">
-            <div class="review-card__inner">
-              <h4 class="review-card__name">Наталья</h4>
-              <p class="review-card__text truncated">Очень много всего интересного. Мне очень понравился марафон, он меня вдохновил, дал знания, подача понятная и очень приятная. Очень хочется приступить к обучению. Я очень рада, что попала сюда и знаю, что мне это нужно и я к этому готова, потому что у меня есть такой запрос. Есть момент, которым хочу поделиться, что в практиках я не чувствовала энергии, а потом просила энергию Рейки помочь, и энергия Рейки начинала проявляться в моих ладонях, и все начинало идти как по маслу.</p>
-              <span class="review-card__toggle" onclick="toggleReview(this)">Читать полностью</span>
-            </div>
-          </div>
+            <article class="review-card">
+              <div class="review-card__head">
+                <img class="review-card__avatar" src="images/Ganna.webp" alt="Жанна" width="52" height="52">
+                <h3>Жанна</h3>
+              </div>
+              <p class="review-card__text">Дарья, вы чудо мастер и практик! Я вкладывала в марафоне Рейки на свечку желание по гармонизации отношений, где я в определённой стране — и о чудо, мне консульство одобрило сложную, долгосрочную визу на 2-й день работы свечки! Причём она ещё не догорела у меня. Работает наше намерение, желание! Всё работает у тех, кто готов меняться!</p>
+              <button class="review-card__toggle" type="button">Читать полностью</button>
+            </article>
 
-          <div class="review-card">
-            <div class="review-card__inner">
-              <h4 class="review-card__name">Ирина</h4>
-              <p class="review-card__text truncated">Дарья, вы отвязали от меня все прошлые отношения безболезненно. Благодарю вас. Теперь я готова к новым. Когда вы говорили, что у вас ученицы через 6 месяцев встречали свою судьбу, то я не могла поверить, как это. А теперь вижу, что я отпустила отношения, в которых была к человеку привязана эмоционально очень сильно. Я безумно рада и дальше об изменениях буду писать. Благодарю.</p>
-              <span class="review-card__toggle" onclick="toggleReview(this)">Читать полностью</span>
-            </div>
-          </div>
+            <article class="review-card">
+              <div class="review-card__head">
+                <img class="review-card__avatar" src="images/Ludmila.webp" alt="Людмила" width="52" height="52">
+                <h3>Людмила</h3>
+              </div>
+              <p class="review-card__text">Хочу рассказать о Чуде. На вебинаре «Рейки Деньги» Даша сказала: «Приготовьтесь, теперь вы будете получать подарки!» Я улыбнулась — мне то не дарят подарки. И вдруг на следующий день мне позвонила лучшая подруга: «я купила тебе шикарный пуховик, пусть будет подарком на Новый Год». Я ахнула. Это было на следующий день после практики. Всё как Даша сказала.</p>
+              <button class="review-card__toggle" type="button">Читать полностью</button>
+            </article>
 
-          <div class="review-card">
-            <div class="review-card__inner">
-              <h4 class="review-card__name">Алла</h4>
-              <p class="review-card__text truncated">Благодарю Вас, Дарья, за такие чудесные практики! У меня слезы текли ручьем на «Исцелении внутреннего ребенка»! Такого никогда не было! Мне девочка с моими глазами подарила куклу и колечко. Я так ее обнимала! И желала быть ей любимой! Никогда не сдаваться! Любить себя! Верить в себя! И что она обязательно справится!!! Да будет так!!!</p>
-              <span class="review-card__toggle" onclick="toggleReview(this)">Читать полностью</span>
-            </div>
+            <article class="review-card">
+              <div class="review-card__head">
+                <img class="review-card__avatar" src="images/Natalia.webp" alt="Наталья" width="52" height="52">
+                <h3>Наталья</h3>
+              </div>
+              <p class="review-card__text">Очень много всего интересного. Мне очень понравился марафон, он меня вдохновил, дал знания, подача понятная и очень приятная. Очень хочется приступить к обучению. Есть момент, которым хочу поделиться — в практиках я не чувствовала энергии, а потом просила энергию Рейки помочь, и энергия Рейки начинала проявляться в моих ладонях, и всё начинало идти как по маслу.</p>
+              <button class="review-card__toggle" type="button">Читать полностью</button>
+            </article>
+
+            <article class="review-card">
+              <div class="review-card__head">
+                <img class="review-card__avatar" src="images/Irina.webp" alt="Ирина" width="52" height="52">
+                <h3>Ирина</h3>
+              </div>
+              <p class="review-card__text">Дарья, вы отвязали от меня все прошлые отношения безболезненно. Благодарю вас. Теперь я готова к новым. Когда вы говорили, что у вас ученицы через 6 месяцев встречали свою судьбу, то я не могла поверить. А теперь вижу, что я отпустила отношения, в которых была привязана эмоционально очень сильно. Я безумно рада и дальше об изменениях буду писать.</p>
+              <button class="review-card__toggle" type="button">Читать полностью</button>
+            </article>
+
+            <article class="review-card">
+              <div class="review-card__head">
+                <img class="review-card__avatar" src="images/Alla.webp" alt="Алла" width="52" height="52">
+                <h3>Алла</h3>
+              </div>
+              <p class="review-card__text">Благодарю Вас, Дарья, за такие чудесные практики! У меня слёзы текли ручьём на «Исцелении внутреннего ребёнка»! Такого никогда не было! Мне девочка с моими глазами подарила куклу и колечко. Я так её обнимала! И желала быть ей любимой! Никогда не сдаваться! Любить себя! Верить в себя! И что она обязательно справится!!!</p>
+              <button class="review-card__toggle" type="button">Читать полностью</button>
+            </article>
+
           </div>
         </div>
 
-        <div class="reviews__nav" id="reviewsDots"></div>
+        <button class="reviews__arrow reviews__arrow--next" type="button" aria-label="Следующий отзыв">›</button>
       </div>
+
+      <div class="reviews__dots" id="reviewsDots"></div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta" data-od-id="cta">
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="cta">
     <div class="container">
-      <h2 class="cta__title">Регистрируйтесь на марафон прямо сейчас</h2>
-      <p class="cta__subtitle">Получите экспресс-практику «Быстрое восстановление сил» в подарок</p>
-      <button class="btn">Получить подарок</button>
-      <p class="cta__gift">Участие бесплатное</p>
+      <div class="final-cta__inner">
+        <span class="eyebrow">Регистрация</span>
+        <h2>Регистрируйтесь прямо сейчас</h2>
+        <p>Получите экспресс-практику «Быстрое восстановление сил» в подарок при регистрации</p>
+        <button class="button button--light" type="button">Участвовать</button>
+        <span>Участие бесплатное · 25 марта · 12:00 и 19:00 мск</span>
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer" data-od-id="footer">
+  <footer class="footer">
     <div class="container">
-      <div class="footer__container">
-        <div class="footer__contact">
+      <div class="footer__inner">
+        <div>
           <p>Свои вопросы пишите на эл. почту</p>
           <p><a href="mailto:mon@dariamagik.com">mon@dariamagik.com</a></p>
         </div>
 
-        <div class="footer__links">
+        <nav>
           <a href="#">Согласие на обработку персональных данных</a>
           <a href="#">Политика конфиденциальности</a>
-        </div>
-      </div>
+        </nav>
 
-      <div class="footer__legal">
-        ООО «Анимавей» · ОГРН 1242300054700 · ИНН 2366050832
+        <p class="footer__legal">ООО «Анимавей» · ОГРН 1242300054700 · ИНН 2366050832</p>
       </div>
     </div>
   </footer>
-  <script src="js/main.js"></script>
 
+  <script src="js/main.js"></script>
 </body>
 </html>

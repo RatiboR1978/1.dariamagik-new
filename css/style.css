@@ -197,7 +197,7 @@ button {
 .author__content h2,
 .final-cta h2 {
   font-family: var(--display);
-  color: var(--graphite);
+  color: var(--forest);
   font-weight: 700;
   letter-spacing: 0;
   line-height: 1.1;
@@ -379,7 +379,7 @@ button {
 .day-card h3,
 .review-card h3 {
   font-family: var(--display);
-  color: var(--graphite);
+  color: var(--forest);
   font-size: 20px;
   line-height: 1.2;
 }

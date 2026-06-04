@@ -647,6 +647,8 @@ button {
 .reviews__track {
   display: flex;
   transition: transform 0.45s ease;
+  touch-action: pan-y;
+  user-select: none;
 }
 
 .review-card {

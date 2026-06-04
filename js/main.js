@@ -78,15 +78,15 @@ cards.forEach((card) => {
 
 let startX = 0;
 
-track.addEventListener("pointerdown", (event) => {
-  startX = event.clientX;
-});
+track.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+}, { passive: true });
 
-track.addEventListener("pointerup", (event) => {
-  const delta = startX - event.clientX;
+track.addEventListener("touchend", (e) => {
+  const delta = startX - e.changedTouches[0].clientX;
   if (Math.abs(delta) < 40) return;
   goToReview(currentIndex + (delta > 0 ? 1 : -1));
-});
+}, { passive: true });
 
 window.addEventListener("resize", refreshReviews);
 refreshReviews();

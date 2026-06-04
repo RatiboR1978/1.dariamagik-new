@@ -76,17 +76,32 @@ cards.forEach((card) => {
   });
 });
 
+const viewport = document.querySelector(".reviews__viewport");
 let startX = 0;
+let startY = 0;
+let isHorizontal = false;
 
-track.addEventListener("touchstart", (e) => {
+viewport.addEventListener("touchstart", (e) => {
   startX = e.touches[0].clientX;
+  startY = e.touches[0].clientY;
+  isHorizontal = false;
 }, { passive: true });
 
-track.addEventListener("touchend", (e) => {
+viewport.addEventListener("touchmove", (e) => {
+  const dx = Math.abs(e.touches[0].clientX - startX);
+  const dy = Math.abs(e.touches[0].clientY - startY);
+  if (dx > dy) {
+    isHorizontal = true;
+    e.preventDefault();
+  }
+}, { passive: false });
+
+viewport.addEventListener("touchend", (e) => {
+  if (!isHorizontal) return;
   const delta = startX - e.changedTouches[0].clientX;
-  if (Math.abs(delta) < 40) return;
+  if (Math.abs(delta) < 30) return;
   goToReview(currentIndex + (delta > 0 ? 1 : -1));
-}, { passive: true });
+});
 
 window.addEventListener("resize", refreshReviews);
 refreshReviews();
